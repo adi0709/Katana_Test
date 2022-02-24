@@ -7,7 +7,7 @@
     "nonGlobalStepDefinitions": true
   },
   "scripts": {
-    "test": "npx cypress run",
+    "test": "npx cypress run --headed --browser chrome",
     "build": "npm i"
   },
   "keywords": [
