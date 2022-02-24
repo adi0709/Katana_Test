@@ -8,7 +8,7 @@ class SalesOrder {
       url: "https://settings.katanamrp.com/api/taxRates?**",
     }).as("SalesData");
     cy.get("#add-sales").click();
-    cy.wait("@SalesData", { timeout: 5000 })
+    cy.wait("@SalesData", { timeout: 15000 })
       .its("response.statusCode")
       .should("eq", 200);
     CustomerForm.validateSave("rgb(228, 44, 0)", "Not saved", ".notSaved");
@@ -43,7 +43,7 @@ class SalesOrder {
   }
 
   editAddressSalesOrder() {
-    cy.get('[row-index="7"] > [aria-colindex="3"]').click();
+    cy.get('[row-index="7"] > [aria-colindex="3"]', { timeout: 15000 }).click();
     CustomerForm.addAddress("[data-testid='inputSalesOrderBillingAddress']");
   }
   validateAddressUpdate() {
