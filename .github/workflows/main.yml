@@ -6,17 +6,22 @@ jobs:
   cypress-Tests:
     name: Run on Chrome 97
     runs-on: ubuntu-latest
-    
+    container: cypress/browsers:node16.13.2-chrome97-ff96
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       
-      - name: install CI
-        run: npm ci
-        
       - name: Install cypress and verify
         run: npm install
 
       - name: Run Cypress Tests
+        run: npm install cypress --save-dev
         run: npm run test
         continue-on-error: false
+      
+      - name: Deploy Report page to github Page
+        uses: peaceiris/actions-gh-page@v3
+        with:
+          github_token: $({ secret.GITHUB_TOKEN })
+          publish_dir: ./public
