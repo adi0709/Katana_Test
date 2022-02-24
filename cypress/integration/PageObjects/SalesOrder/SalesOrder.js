@@ -24,6 +24,10 @@ class SalesOrder {
     cy.wait("@SearchCustomer", { timeout: 5000 })
       .its("response.statusCode")
       .should("eq", 200);
+    cy.intercept({
+      method: "GET",
+      url: "/api/customer-addresses?filter={'where':{'customerId':**",
+    }).as("saveDetails");
     cy.get("[id*='-popup']", { timeout: 20000 })
       .should("exist")
       .and("be.visible")
@@ -33,6 +37,7 @@ class SalesOrder {
           .and("contain.text", "Mary Lights [DEMO]")
           .click();
       });
+    cy.get('[data-testid="header-name-salesOrder"]').click(); //to get the sales order saved
   }
   validateCreateSalesOrder() {
     CustomerForm.validateSave(
