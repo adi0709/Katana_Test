@@ -12,7 +12,6 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v2.2.7
         with:
-          run: npm run build
           run: npm run test
 
       - name: Upload screenshots
