@@ -1,15 +1,17 @@
-name: Cypress Tests
-
-on: [push]
-
 jobs:
   cypress-run:
-    runs-on: macoos-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Cypress Tests
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress.io
         uses: cypress-io/github-action@v2.9.7
         with:
-          start: npx cypress run
+          build: npm run build
+          start: npm run test
