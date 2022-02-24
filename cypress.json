@@ -4,6 +4,7 @@
     "baseUrl": "https://katanamrp.com/login/",
     "viewportWidth": 1280,
     "viewportHeight": 850,
+    "projectId": "e6285r",
     "env":{
       "email": "a.panwar0709@gmail.com",
       "password": "Adi12345",

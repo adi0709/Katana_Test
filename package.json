@@ -7,7 +7,7 @@
     "nonGlobalStepDefinitions": true
   },
   "scripts": {
-    "test": "npx cypress run --browser chrome"
+    "test": "npx cypress run --browser chrome --record --key 73a64135-b5d4-4ada-8c66-70cfe70bb53e"
   },
   "keywords": [
     "Cypress",
