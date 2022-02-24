@@ -4,9 +4,10 @@ on:
 
 jobs:
   cypress-Tests:
-    name: Run on Chrome 98
+    name: Run on Chrome 97
     runs-on: ubuntu-latest
-    container: latest
+    container: cypress/browsers:node16.13.2-chrome97-ff96
+    
     steps:
       -uses: actions/checkout@v2
 
