@@ -19,7 +19,7 @@ class Login {
       url: "https://sales.katanamrp.com/api/salesOrderOpenLists?filter=**",
     }).as("salesList");
     cy.get('[name="submit"').should("exist").and("be.visible").click();
-    cy.wait("@salesList", { timeout: 5000 })
+    cy.wait("@salesList", { timeout: 20000 })
       .its("response.statusCode")
       .should("eq", 200);
   }
