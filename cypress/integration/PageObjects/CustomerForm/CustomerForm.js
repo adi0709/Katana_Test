@@ -14,7 +14,7 @@ class CustomerForm {
       url: "https://ipa.elev.io/api/settings/5940f58b1cb3d/en?is_init_load=false&loggedin_only=false&first_name=null&last_name=null&registered_at=null&previewMode=false&url=https%3A%2F%2Ffactory.katanamrp.com%2Fcustomer",
     }).as("Rates", { timeout: 5000 });
     cy.get("#add-customer").should("exist").and("be.visible").click();
-    cy.wait("@Rates", { timeout: 5000 })
+    cy.wait("@Rates", { timeout: 20000 })
       .its("response.statusCode")
       .should("eq", 200);
   }
@@ -55,7 +55,7 @@ class CustomerForm {
     cy.get(Cypress.env("customerFormFields")[1]).type(Cypress.env("lName"));
     cy.get(Cypress.env("customerFormFields")[4]).type(Cypress.env("email"));
     cy.get(Cypress.env("customerFormFields")[3]).click(); //To save the added customer
-    cy.wait("@customer", { timeout: 10000 })
+    cy.wait("@customer", { timeout: 20000 })
       .its("response.statusCode")
       .should("eq", 200);
   }
@@ -70,7 +70,7 @@ class CustomerForm {
     }).as("CustomerList");
     this.clickClose();
 
-    cy.wait("@CustomerList", { timeout: 5000 })
+    cy.wait("@CustomerList", { timeout: 20000 })
       .its("response.statusCode")
       .should("eq", 200);
     cy.get('[data-testid="cellName"]')
@@ -87,14 +87,7 @@ class CustomerForm {
         for (var i = 0; i < Cypress.env("billingInfo").length; i++) {
           cy.get("input").eq(i).type(Cypress.env("billingInfo")[i]);
         }
-        /* cy.intercept({
-          method: "POST",
-          url: "https://rs.fullstory.com/rec/bundle?OrgId=**",
-        }).as("Autocomplete"); */
         cy.get("[name='line1']").type(Cypress.env("address"));
-        /* cy.wait("@Autocomplete", { timeout: 5000 })
-          .its("response.statuscode")
-          .should("eq", 200);*/
       });
 
     cy.get(".MuiPaper-elevation1", { timeout: 5000 })
