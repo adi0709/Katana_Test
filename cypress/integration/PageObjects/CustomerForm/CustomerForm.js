@@ -90,11 +90,11 @@ class CustomerForm {
         cy.get("[name='line1']").type(Cypress.env("address"));
       });
 
-    cy.get(".MuiPaper-elevation1", { timeout: 5000 })
+    cy.get(".MuiPaper-elevation1", { timeout: 10000 })
       .should("exist")
       .and("be.visible")
       .within(() => {
-        cy.get("[role='option']", { timeout: 5000 })
+        cy.get("[role='option']", { timeout: 10000 })
           .eq(0)
           .should("contain.text", "Peetri 7, Tallinn, Estonia")
           .click({ force: true });
