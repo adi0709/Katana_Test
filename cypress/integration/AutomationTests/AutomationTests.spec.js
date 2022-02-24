@@ -3,6 +3,9 @@ import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import Login from "../PageObjects/Login/Login";
 import CustomerForm from "../PageObjects/CustomerForm/CustomerForm";
 import SalesOrder from "../PageObjects/SalesOrder/SalesOrder";
+Cypress.on("uncaught:exception", (err, runnable) => {
+  return false;
+});
 
 //Login Scenario
 Given("the platoform is opened", () => {
