@@ -4,17 +4,6 @@
     "baseUrl": "https://katanamrp.com/login/",
     "viewportWidth": 1280,
     "viewportHeight": 850,
-    "reporter": "cypress-multi-reporters",
-    "reporterOptions": {
-        "reporterEnabled": "mochawesome",
-        "mochawesomeReporterOptions": {
-            "reportDir": "cypress/reports/mocha",
-            "quite": true,
-            "overwrite": true,
-            "html": true,
-            "json": true
-        }
-    },
     "env":{
       "email": "a.panwar0709@gmail.com",
       "password": "Adi12345",
