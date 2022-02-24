@@ -11,15 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      
       - name: Install cypress and verify
         run: npm install
 
       - name: Run Cypress Tests
-        run: npm install cypress --save-dev
         run: npm run test
         continue-on-error: false
-      
+
       - name: Deploy Report page to github Page
         uses: peaceiris/actions-gh-page@v3
         with:
