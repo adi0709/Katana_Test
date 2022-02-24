@@ -12,7 +12,7 @@ class CustomerForm {
     cy.intercept({
       method: "GET",
       url: "https://ipa.elev.io/api/settings/5940f58b1cb3d/en?is_init_load=false&loggedin_only=false&first_name=null&last_name=null&registered_at=null&previewMode=false&url=https%3A%2F%2Ffactory.katanamrp.com%2Fcustomer",
-    }).as("Rates", { timeout: 5000 });
+    }).as("Rates", { timeout: 20000 });
     cy.get("#add-customer").should("exist").and("be.visible").click();
     cy.wait("@Rates", { timeout: 20000 })
       .its("response.statusCode")
