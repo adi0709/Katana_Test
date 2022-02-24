@@ -3,7 +3,6 @@
 class Login {
   visitLogin() {
     cy.visit("/");
-    cy.contains("Sign in").should("exist").and("be.visible").click();
   }
   enterCredentials() {
     cy.get("#1-email")

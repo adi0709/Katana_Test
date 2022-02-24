@@ -24,12 +24,13 @@ class SalesOrder {
     cy.wait("@SearchCustomer", { timeout: 5000 })
       .its("response.statusCode")
       .should("eq", 200);
-    cy.get("[id*='-popup']", { timeout: 10000 })
+    cy.get("[id*='-popup']", { timeout: 20000 })
       .should("exist")
       .and("be.visible")
       .within(() => {
-        cy.get("[id*='-option-1']", { timeout: 10000 })
-          .should("contain.text", "Mary Lights [DEMO]")
+        cy.get("[id*='-option-1']", { timeout: 20000 })
+          .should("be.visible")
+          .and("contain.text", "Mary Lights [DEMO]")
           .click();
       });
   }
@@ -39,17 +40,27 @@ class SalesOrder {
       "All changes saved",
       ".saved"
     );
+    cy.intercept({
+      method: "GET",
+      url: "https://sales.katanamrp.com/api/salesOrderOpenLists?filter=**",
+    }).as("salesList");
     CustomerForm.clickClose();
+    cy.wait("@salesList", { timeout: 20000 })
+      .its("response.statusCode")
+      .should("eq", 200);
   }
 
   editAddressSalesOrder() {
-    cy.get('[row-index="7"] > [aria-colindex="3"]', { timeout: 15000 }).click();
+    cy.get("[ref='gridPanel']").within(() => {
+      cy.get('[row-index="7"]', { timeout: 15000 }).eq(1).click();
+    });
+
     CustomerForm.addAddress("[data-testid='inputSalesOrderBillingAddress']");
   }
   validateAddressUpdate() {
     cy.get('[data-testid="address-field-location"]').should(
       "contain.text",
-      Cypress.env("completeAddress")
+      "Peetri"
     );
     CustomerForm.clickClose();
   }
