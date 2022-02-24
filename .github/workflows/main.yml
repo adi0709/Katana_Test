@@ -12,5 +12,12 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v2.2.7
         with:
-          build: npm run build
-          start: npm start
+          run: npm run build
+          run: npm run test
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@latest
+        if: failure()
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
