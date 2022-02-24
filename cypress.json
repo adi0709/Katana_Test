@@ -1,0 +1,59 @@
+{
+    "testFiles": "**/*.feature",
+    "chromeWebSecurity": false,
+    "baseUrl": "https://katanamrp.com/",
+    "viewportWidth": 1280,
+    "viewportHeight": 850,
+    "env":{
+      "email": "a.panwar0709@gmail.com",
+      "password": "Adi12345",
+      "username": "Aditya Panwar",
+      "fName": "Aditya",
+      "lName": "Panwar",
+      "address": "Peetri 7",
+      "completeAddress":"7 Peetri, Tallinn, Harju maakond, 10411, Estonia",
+      "navSelectors":[
+        "#salesTab",
+        "#manufacturingTab",
+        "#purchaseTab",
+        "#warehouseTab",
+        "#portfolioTab",
+        "#contactsTab",
+        "#settingsTab"
+      ],
+      "globalAddselectors":[
+        "#add-quote",
+        "#add-sales",
+        "#add-manufacturing",
+        "#add-purchase",
+        "#add-stockadjustment",
+        "#add-product",
+        "#add-material"
+      ],
+      "customerFormFields":[
+        "[data-testid='inputCustomerFirstName']",
+        "[data-testid='inputCustomerLastName']",
+        "[data-testid='inputCustomerCompany']",
+        "[data-testid='inputCustomerDisplayName']",
+        "[data-testid='inputCustomerEmail']",
+        "[data-testid='inputCustomerPhone']",
+        "[data-testid='inputCustomerComment']",
+        "[data-testid='inputCustomerDefaultBillingAddress']",
+        "[data-testid='inputCustomerDefaultShippingAddress']"
+      ],
+      "billingInfo":[
+        "FirstName",
+        "LastName",
+        "Company",
+        "55555555"
+      ],
+      "saleOrderElemets":[
+        "[placeholder='Search or create customer']",
+        "[data-testid='address-field-new']",
+        "[data-testid='iconButtonOpenTrackingNumberPopover']",
+        "[data-testid='variant-cell-renderer']",
+        "#mui-component-select-location"
+      ]
+    }
+    
+  }

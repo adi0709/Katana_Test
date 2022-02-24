@@ -1,0 +1,43 @@
+{
+  "email": "a.panwar0709@gmail.com",
+  "password": "Adi12345",
+  "username": "Aditya Panwar",
+  "fName": "Aditya",
+  "lName": "Panwar",
+  "navSelectors":[
+    "#salesTab",
+    "#manufacturingTab",
+    "#purchaseTab",
+    "#warehouseTab",
+    "#portfolioTab",
+    "#contactsTab",
+    "#settingsTab"
+  ],
+  "globalAddselectors":[
+    "#add-quote",
+    "#add-sales",
+    "#add-manufacturing",
+    "#add-purchase",
+    "#add-stockadjustment",
+    "#add-product",
+    "#add-material"
+  ],
+  "customerFormFields":[
+    "[data-testid='inputCustomerFirstName']",
+    "[data-testid='inputCustomerLastName']",
+    "[data-testid='inputCustomerCompany']",
+    "[data-testid='inputCustomerDisplayName']",
+    "[data-testid='inputCustomerDisplayName']",
+    "[data-testid='inputCustomerEmail']",
+    "[data-testid='inputCustomerPhone']",
+    "[data-testid='inputCustomerComment']",
+    "[data-testid='inputCustomerDefaultBillingAddress']",
+    "[data-testid='inputCustomerDefaultShippingAddress']"
+  ],
+  "billingInfo":[
+    "FirstName",
+    "LastName",
+    "Company",
+    "55555555"
+  ]
+}
