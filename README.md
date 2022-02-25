@@ -21,4 +21,4 @@ This repo contains automation tests for the Veriff: Document Verifaction Platfor
    `npx cypress run --headed --browser chrome`
    or
    `npm run test`
-6. 'npm run test` will execute the tests and provide the link to Cypress Dashboard
+6. `npm run test` will execute the tests and provide the link to Cypress Dashboard
