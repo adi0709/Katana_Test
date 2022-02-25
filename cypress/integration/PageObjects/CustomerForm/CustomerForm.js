@@ -36,7 +36,6 @@ class CustomerForm {
     });
   }
   validateCustomerForm($txt, $el) {
-    this.validateSave("rgb(228, 44, 0)", "Not saved", ".notSaved");
     cy.get(".MuiGrid-grid-xs-true").within(() => {
       cy.get(".MuiTypography-caption")
         .should("exist")

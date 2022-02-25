@@ -40,7 +40,7 @@ Feature: Test the product search functionality
         Then the Sales order is created
 
     Scenario: Edit Customer Address of a Sales Order
-        Given the sales order list is visible
+        Given the sales order tab is still open
         When the Sales Order Customer Address is edited
         Then the Customer order gets updated
 

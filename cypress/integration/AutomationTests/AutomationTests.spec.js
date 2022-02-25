@@ -27,6 +27,7 @@ And("the add new customer button is clicked", () => {
   CustomerForm.clickAddNewCustomer();
 });
 Then("the Create New Customer form is opened", () => {
+  CustomerForm.validateSave("rgb(228, 44, 0)", "Not saved", ".notSaved");
   CustomerForm.validateCustomerForm("Customer", "customerFormFields");
 });
 //Create New Customer Form Scenario Ends
@@ -62,6 +63,7 @@ When("the add new Sales Order button is clicked", () => {
   SalesOrder.clickSalesOrder();
 });
 Then("the sales order tab is opened", () => {
+  CustomerForm.validateSave("rgb(228, 44, 0)", "Not saved", ".notSaved");
   CustomerForm.validateCustomerForm("Sales order", "saleOrderElemets");
 });
 //Open Sales Order Page Scenario Ends
@@ -76,18 +78,21 @@ Then("the Sales order is created", () => {
 //Create a New Sales Order Scenario Ends
 
 //Update Customer's Address in a Sales Order Scenario
-Given("the sales order list is visible", () => {
-  CustomerForm.validateCustomerList("#salesTab", 2, "Open");
+Given("the sales order tab is still open", () => {
+  CustomerForm.validateCustomerForm("Sales order", "saleOrderElemets");
 });
 When("the Sales Order Customer Address is edited", () => {
-  SalesOrder.editAddressSalesOrder();
+  CustomerForm.addAddress("[data-testid='inputSalesOrderBillingAddress']");
 });
 Then("the Customer order gets updated", () => {
   SalesOrder.validateAddressUpdate();
 });
-//Update Customer's Address in a Sales Order Scenario
+//Update Customer's Address in a Sales Order Scenario Ends
 
 //Delete Sales Order Data Scenario
+Given("the sales order list is visible", () => {
+  CustomerForm.validateCustomerList("#salesTab", 2, "Open");
+});
 When("the created Sales order are deleted", () => {
   SalesOrder.deleteCreatedSalesOrder();
 });
