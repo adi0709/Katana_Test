@@ -49,13 +49,15 @@ class SalesOrder {
       method: "GET",
       url: "https://sales.katanamrp.com/api/salesOrderOpenLists?filter=**",
     }).as("salesList");
-    CustomerForm.clickClose();
+    //CustomerForm.clickClose();
+    cy.get("#salesTab").click();
     cy.wait("@salesList", { timeout: 20000 })
       .its("response.statusCode")
       .should("eq", 200);
   }
 
   editAddressSalesOrder() {
+    //cy.reload();
     cy.get("[ref='gridPanel']").within(() => {
       cy.get('[row-index="7"]', { timeout: 15000 }).eq(1).click();
     });
