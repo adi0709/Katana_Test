@@ -22,3 +22,4 @@ This repo contains automation tests for the Veriff: Document Verifaction Platfor
    or
    `npm run test`
 6. `npm run test` will execute the tests and provide the link to Cypress Dashboard
+Test
